@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewData["Title"] = "Testul1";
+    Layout = "~/Views/Shared/_LayoutTeste.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+<script src="~/js/teste/testul1.js"></script>
+
+<link rel="stylesheet" href="~/css/site.css">
+
+@* testul 1 - realizat cu ajutorul Vue.js *@
+
+<!--container-->
+<section class="container">
+
+    <!--questionBox-->
+    <div class="questionBox" id="appT1">
+
+        <!-- transition -->
+        <transition :duration="{ enter: 500, leave: 300 }" enter-active-class="animated zoomIn" leave-active-class="animated zoomOut" mode="out-in">
+
+            <!--questionContainer-->
+            <div class="questionContainer" v-if="!esteFinalizat && intrebari.length>0 && testulAFostDat==false" v-bind:key="indexIntrebare">
+
+                <header>
+                    <h1 class="title is-6">Logica si perspicacitate</h1>
+                    <!--progress-->
+                    <div class="progressContainer">
+                        <progress class="progress is-info is-small" :value="(indexIntrebare/intrebari.length)*100" max="100">{{(indexIntrebare/intrebari.length)*100}}%</progress>
+                        <p>{{(indexIntrebare/intrebari.length).toFixed(1)*100}}% complet</p>
+                    </div>
+                    <!--/progress-->
+                </header>
+
+                <!-- questionTitle -->
+                <h3 class="titleContainer title">{{ intrebari[indexIntrebare].text }}</h3>
+
+                <!-- quizOptions -->
+                <div class="optionContainer">
+                    <div class="option" v-for="(responses, index) in intrebari[indexIntrebare].responses" v-on:click="selectareOptiune(index)" :class="{ 'is-selected': raspunsUtilizator[indexIntrebare] == index}" :key="index">
+                        {{ index | charIndex }}. {{ responses }}
+                    </div>
+                </div>
+
+                <!--quizFooter: navigation and progress-->
+                <footer class="questionFooter">
+
+                    <!--pagination-->
+                    <nav class="pagination" role="navigation" aria-label="pagination">
+
+                        <span class="counterIntrebari">{{indexIntrebare+1}}/{{intrebari.length}}</span>
+                        <!-- next button -->
+                        <a class="button" :class="(raspunsUtilizator[indexIntrebare]==null)?'':'is-active'" v-if="indexIntrebare<intrebari.length-1" v-on:click="next();" :disabled="(raspunsUtilizator[indexIntrebare]==null)">
+                            Urmatoarea intrebare
+                        </a>
+                        <a class="button" :class="(raspunsUtilizator[indexIntrebare]==null)?'':'is-active'" v-if="indexIntrebare==intrebari.length-1" v-on:click="salvareRezultat();" :disabled="(raspunsUtilizator[indexIntrebare]==null)">
+                            Finalizare test
+                        </a>
+
+                    </nav>
+                    <!--/pagination-->
+
+                </footer>
+                <!--/quizFooter-->
+
+            </div>
+            <!--/questionContainer-->
+            <!--quizCompletedResult-->
+            <div v-if="esteFinalizat && testulAFostDat==false" v-bind:key="indexIntrebare" class="quizCompleted has-text-centered">
+
+                <!-- quizCompletedIcon: Achievement Icon -->
+                <span class="icon">
+                    <i class="fa" :class="scor()>intrebari.length/2?'fa-check-circle is-active':'fa-times-circle'"></i>
+                </span>
+
+                <!--resultTitleBlock-->
+                <p class="subtitle">
+                    Scorul obtinut este {{ scor() }} / {{ intrebari.length }}
+                </p>
+                <br>
+                @*<a class="button" v-on:click="restart()">restart <i class="fa fa-refresh"></i></a>*@
+
+                <a class="button" href="/">Revenire la pagina principala</a>
+                <!--/resultTitleBlock-->
+
+            </div>
+            <!--/quizCompetedResult-->
+
+            <div v-if="testulAFostDat" class="quizCompleted has-text-centered">
+
+                <!-- quizCompletedIcon: Achievement Icon -->
+                <span class="icon">
+                    <i class="fa" :class="punctaj>nrIntrebari/2?'fa-check-circle is-active':'fa-times-circle'"></i>
+                </span>
+
+                <!--resultTitleBlock-->
+                <p class="title">
+                    Ati dat deja acest test!
+                </p>
+                <p class="subtitle">
+                    Ati obtinut {{ punctaj }} / {{ nrIntrebari }} puncte.
+                </p>
+                <br>
+
+                <a class="button" href="/">Revenire la pagina principala</a>
+                <!--/resultTitleBlock-->
+
+            </div>
+
+        </transition>
+
+    </div>
+    <!--/questionBox-->
+
+</section>
+<!--/container-->

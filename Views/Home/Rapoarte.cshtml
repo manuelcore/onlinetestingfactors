@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Rapoarte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js" integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw==" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="~/js/rapoarte.js"></script>
+
+    <link rel="stylesheet" href="~/css/site.css">
+}
+
+<div ng-app="rapoarteApp" ng-controller="rapoarteController as rapoarte">
+    <section class="rapoarteContainer">
+        <div class="selectieRapoarte">
+            <label for="tipRaport">Selectati factorul pentru care doriti sa obtineti rapoarte:</label>
+            <select name="tipRaport" id="tipRaport" class="form-control" ng-model="rapoarte.raportSelectat">
+                <optgroup label="Lungime test">
+                    <option value="lt1" selected>Testul 1 - Logica si perspicacitate</option>
+                    <option value="lt2">Testul 2 - Sisteme de operare</option>
+                </optgroup>
+                <optgroup label="Lungime intrebari">
+                    <option value="li1">Testul 1 - Logica si perspicacitate</option>
+                    <option value="li2">Testul 2 - Sisteme de operare</option>
+                    <option value="li3">Testul 3 - Programare web</option>
+                    <option value="li4">Testul 4 - Retele de calculatoare</option>
+                </optgroup>
+                <optgroup label="Alternare complexitate">
+                    <option value="ac1" selected>Testul 1 - Logica si perspicacitate</option>
+                    <option value="ac2">Testul 2 - Sisteme de operare</option>
+                </optgroup>
+            </select>
+            <button class="btn btn-success float-right my-3" ng-click="rapoarte.generareRapoarte()">Afisare rapoarte</button>
+        </div>
+        <div class="afisareRapoarte" ng-show="rapoarte.afisareRapoarte">
+            <div id="inchidereRapoarte" ng-click="rapoarte.afisareRapoarte=false">x</div>
+            <div class="chartContainer">
+                <h3 style="text-align:center;padding-bottom:3%"><b>Media notelor obtinute</b></h3>
+                <canvas id="chartGeneral"></canvas>
+            </div>
+            <div class="chartContainer">
+                <h3 style="text-align:center;padding-bottom:3%"><b>Numarul de studenti care au obtinut nota maxima - {{rapoarte.notaMaxima}}</b></h3>
+                <canvas id="chartNotaMaxima"></canvas>
+            </div>
+        </div>
+
+    </section>
+</div>
+

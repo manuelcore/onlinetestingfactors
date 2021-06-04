@@ -1,0 +1,24 @@
+﻿@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Resetare cheie de autentificare";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h4>@ViewData["Title"]</h4>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>Daca veti reseta cheia de autentificare, aplicatia de autentificare nu va functiona pana se va termina reconfigurarea.</strong>
+    </p>
+    <p>
+        Acest proces va dezactiva 2FA pana la verificarea aplicatiei de autentificare.
+        Daca nu veti termina configurarea puteti pierde accesul la cont.
+    </p>
+</div>
+<div>
+    <form id="reset-authenticator-form" method="post" class="form-group">
+        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">Resetare cheie de autentificare</button>
+    </form>
+</div>

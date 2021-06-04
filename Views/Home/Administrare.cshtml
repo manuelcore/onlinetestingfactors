@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Administrare intrebari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/administrare.js"></script>
+
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+
+}
+
+<div class="intrebariContainer">
+    <table id="tabelIntrebari" class="display compact">
+    </table>
+    <div class="text-center">
+        <button id="adaugareIntrebare" class="btn btn-success" onclick="adaugareIntrebare()">
+            <span><i class="fa fa-plus"> Adaugare intrebare </i></span>
+        </button>
+    </div>
+</div>
+
+<div class="modal" id="addEditModal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adaugare/editare intrebare</h5>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="inputIntrebare">Intrebare</label>
+                    <textarea rows="5" class="form-control form-control-sm" id="inputIntrebare"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputVariante">Variante raspuns (se separa prin '/') </label>
+                    <textarea rows="3" class="form-control form-control-sm" id="inputVariante"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputRaspuns">Raspuns corect</label>
+                    <input class="form-control form-control-sm" id="inputRaspuns" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="idtest">Id test</label>
+                    <select name="idtest" id="idtest" class="form-control form-control-sm">
+                        <option value="1">Testul 1 - Logica si perspicacitate</option>
+                        <option value="2">Testul 2 - Sisteme de operare</option>
+                        <option value="3">Testul 3 - Programare web</option>
+                        <option value="4">Testul 4 - Retele de calculatoare</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="lungime">Lungime</label>
+                    <select name="lungime" id="lungime" class="form-control form-control-sm">
+                        <option value="0">Scurta</option>
+                        <option value="1">Lunga</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dificultate">Dificultate</label>
+                    <select name="dificultate" id="dificultate" class="form-control form-control-sm">
+                        <option value="0">Usoara</option>
+                        <option value="1">Grea</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="salvareIntrebare()">Salvare</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="hideModal1()">Anulare</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Stergere intrebare</h5>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            </div>
+            <div class="modal-body text-center">
+                Sunteti sigur ca doriti sa stergeti intrebarea?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="confirmareStergere()">Stergere</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="hideModal2()">Anulare</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Testul2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js" integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw==" crossorigin="anonymous"></script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+<script src="~/js/teste/testul2.js"></script>
+
+<link rel="stylesheet" href="~/css/site.css">
+
+@* testul 2 - realizat cu ajutorul Angular.js *@
+
+<!--container-->
+<section class="container">
+
+    <!--questionBox-->
+    <div class="questionBox" ng-app="ngAppTestul2" ng-controller="controllerTestul2 as test2Ctrl">
+
+        <div class="questionContainer" ng-if="!test2Ctrl.esteFinalizat && test2Ctrl.intrebari.length>0 && test2Ctrl.testulAFostDat==false">
+
+            <header>
+                <h1 class="title is-6">Sisteme de operare</h1>
+                <!--progress-->
+                <div class="progressContainer">
+                    <progress class="progress is-info is-small" ng-value="(test2Ctrl.indexIntrebare/test2Ctrl.intrebari.length)*100" max="100">{{(test2Ctrl.indexIntrebare/test2Ctrl.intrebari.length)*100}}%</progress>
+                    <p>{{(test2Ctrl.indexIntrebare/test2Ctrl.intrebari.length).toFixed(1)*100}}% complet</p>
+                </div>
+                <!--/progress-->
+            </header>
+
+            <ul class="lista">
+                <li ng-repeat="item in test2Ctrl.intrebari track by $index" ng-init="parentIndex = $index" ng-show="$index == test2Ctrl.indexIntrebare">
+                    <!-- questionTitle -->
+                    <h3 class="titleContainer title" ng-bind-html="item.text"></h3>
+                    <!-- quizOptions -->
+                    <ul class="optionContainer lista">
+                        <li class="option" ng-repeat="raspuns in item.responses" ng-click="test2Ctrl.selecteaza($parent.$index,$index,raspuns)" ng-class="{'is-selected' : test2Ctrl.raspunsUtilizator[$parent.$index] == $index}">{{ $index | charIndex }}. {{ raspuns }}</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--quizFooter: navigation and progress-->
+            <footer class="questionFooter">
+
+                <!--pagination-->
+                <nav class="pagination" role="navigation" aria-label="pagination">
+
+                    <span class="counterIntrebari">{{test2Ctrl.indexIntrebare+1}}/{{test2Ctrl.intrebari.length}}</span>
+                    <!-- next button -->
+                    <a class="button" ng-class="{'is-active':test2Ctrl.allowNav}" ng-if="test2Ctrl.indexIntrebare<test2Ctrl.intrebari.length-1" ng-click="test2Ctrl.next()" ng-disabled="!test2Ctrl.allowNav">
+                        Urmatoarea intrebare
+                    </a>
+                    <a class="button" ng-class="{'is-active':test2Ctrl.allowNav}" ng-if="test2Ctrl.indexIntrebare==test2Ctrl.intrebari.length-1" ng-click="test2Ctrl.salvareRezultat()" ng-disabled="!test2Ctrl.allowNav">
+                        Finalizare test
+                    </a>
+
+                </nav>
+                <!--/pagination-->
+
+            </footer>
+            <!--/quizFooter-->
+        </div>
+
+        <!--/questionContainer-->
+        <!--quizCompletedResult-->
+        <div ng-if="test2Ctrl.esteFinalizat && test2Ctrl.testulAFostDat==false" class="quizCompleted has-text-centered">
+
+            <!-- quizCompletedIcon: Achievement Icon -->
+            <span class="icon">
+                <i class="fa" ng-class="{'fa-check-circle is-active':test2Ctrl.scor()>test2Ctrl.intrebari.length/2,'fa-times-circle':test2Ctrl.scor()<=test2Ctrl.intrebari.length/2}"></i>
+            </span>
+
+            <!--resultTitleBlock-->
+            <p class="subtitle">
+                Scorul obtinut este {{ test2Ctrl.scor() }} / {{ test2Ctrl.intrebari.length }}
+            </p>
+            <br>
+
+            <a class="button" href="/">Revenire la pagina principala</a>
+            <!--/resultTitleBlock-->
+
+        </div>
+        <!--/quizCompetedResult-->
+
+        <div ng-if="test2Ctrl.testulAFostDat" class="quizCompleted has-text-centered">
+
+            <!-- quizCompletedIcon: Achievement Icon -->
+            <span class="icon">
+                <i class="fa" ng-class="test2Ctrl.punctaj>test2Ctrl.nrIntrebari/2?'fa-check-circle is-active':'fa-times-circle'"></i>
+            </span>
+
+            <!--resultTitleBlock-->
+            <p class="title">
+                Ati dat deja acest test!
+            </p>
+            <p class="subtitle">
+                Ati obtinut {{ test2Ctrl.punctaj }} / {{ test2Ctrl.nrIntrebari }} puncte.
+            </p>
+            <br>
+
+            <a class="button" href="/">Revenire la pagina principala</a>
+            <!--/resultTitleBlock-->
+
+        </div>
+
+    </div>
+    <!--/questionBox-->
+
+</section>
+<!--/container-->

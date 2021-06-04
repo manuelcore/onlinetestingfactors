@@ -1,0 +1,509 @@
+﻿
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.butonDegrade {
+    background-image: linear-gradient(to right, #b3ccff, #0366d6);
+    color: white;
+}
+
+.loginIcon {
+    color: #b3ccff;
+}
+
+body {
+    background-color: #007bff8c!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.login {
+    overflow-x:hidden;
+}
+
+.acasaContainer, .quizCompleted, .questionContainer, .login, .rapoarteContainer, .intrebariContainer {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+    /* Lista teste pagina principala
+-------------------------------------------------- */
+    @import url(https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i);
+    ol .gradient-list > li, ol.gradient-list > li::before {
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+}
+
+
+ol.gradient-list {
+    counter-reset: gradient-counter;
+    list-style: none;
+    margin: 1.75rem 0;
+    padding-left: 1rem;
+}
+
+    ol.gradient-list > li {
+        border-radius: 0 0.5rem 0.5rem 0.5rem;
+        counter-increment: gradient-counter;
+        margin-top: 1rem;
+        min-height: 3rem;
+        padding: 1rem 1rem 1rem 3rem;
+        position: relative;
+    }
+
+        ol.gradient-list > li::before, ol.gradient-list > li::after {
+            background: linear-gradient(135deg, #83e4e2 0%, #a2ed56 100%);
+            border-radius: 1rem 1rem 0 1rem;
+            content: '';
+            height: 3rem;
+            left: -1rem;
+            overflow: hidden;
+            position: absolute;
+            top: -1rem;
+            width: 3rem;
+        }
+
+        ol.gradient-list > li::before {
+            align-items: flex-end;
+            content: counter(gradient-counter);
+            color: #1d1f20;
+            display: flex;
+            font: 900 1.5em/1 'Montserrat';
+            justify-content: flex-end;
+            padding: 0.125em 0.25em;
+            z-index: 1;
+        }
+
+        ol.gradient-list > li:nth-child(10n+1):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(210, 86,237, 0.2) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+2):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(210, 86,237, 0.4) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+3):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(210, 86,237, 0.6) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+4):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(210, 86,237, 0.8) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+5):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 1) 0%, rgba(210, 86,237, 1) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+6):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(210, 86,237, 0.2) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+7):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(210, 86,237, 0.4) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+8):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(210, 86,237, 0.6) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+9):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(210, 86,237, 0.8) 100%);
+        }
+
+        ol.gradient-list > li:nth-child(10n+10):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 1) 0%, rgba(210, 86,237, 1) 100%);
+        }
+
+        ol.gradient-list > li + li {
+            margin-top: 2rem;
+        }
+/* Lista teste pagin principala
+-------------------------------------------------- */
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.content {
+    border: 2px ridge #007bff40;
+    background-color: #fff;
+}
+
+#listaTeste {
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.lista {
+    list-style-type: none;
+    padding:0px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+
+.button {
+    transition: 0.3s;
+}
+
+.title, .subtitle {
+    font-family: Montserrat, sans-serif;
+    font-weight: normal;
+}
+
+.animated {
+    transition-duration: 0.15s;
+}
+
+.container {
+    margin: auto;
+}
+
+.acasaContainer {
+    margin: auto;
+    min-height: 30rem;
+    background: #fafafa;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding:5%;
+}
+
+
+/* Teste grila
+-------------------------------------------------- */
+.questionBox {
+    /*max-width: 30rem;
+    width: 30rem;*/
+    min-height: 30rem;
+    background: #fafafa;
+    position: relative;
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+    .questionBox header {
+        background: rgba(0, 0, 0, 0.025);
+        padding: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+        .questionBox header h1 {
+            font-weight: bold;
+            margin-bottom: 1rem !important;
+        }
+
+        .questionBox header .progressContainer {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+            .questionBox header .progressContainer > progress {
+                margin: 0;
+                border-radius: 5rem;
+                overflow: hidden;
+                border: none;
+                color: #28a745;
+                font-size: 1rem !important;
+            }
+
+                .questionBox header .progressContainer > progress::-moz-progress-bar {
+                    background: #3d5afe;
+                }
+
+                .questionBox header .progressContainer > progress::-webkit-progress-value {
+                    background: #3d5afe;
+                }
+
+            .questionBox header .progressContainer > p {
+                margin: 0;
+                margin-top: 0.5rem;
+            }
+
+    .questionBox .titleContainer {
+        text-align: center;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    .questionBox .quizForm{
+        display: block;
+        white-space: normal;
+        height: 100%;
+        width: 100%;
+    }
+
+        .questionBox .quizForm .quizFormContainer {
+            height: 100%;
+            margin: 15px 18px;
+        }
+
+            .questionBox .quizForm .quizFormContainer .field-label {
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+
+    .questionBox .quizCompleted {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+        .questionBox .quizCompleted > .icon {
+            color: #ff5252;
+            font-size: 5rem;
+        }
+
+            .questionBox .quizCompleted > .icon .is-active {
+                color: #28a745;
+            }
+
+    .questionBox .questionContainer {
+        white-space: normal;
+        height: 100%;
+        width: 100%;
+    }
+
+        .questionBox .questionContainer .optionContainer {
+            margin-top: 12px;
+            flex-grow: 1;
+        }
+
+            .questionBox .questionContainer .optionContainer .option {
+                border-radius: 290486px;
+                padding: 9px 18px;
+                margin: 0 18px;
+                margin-bottom: 12px;
+                transition: 0.3s;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.05);
+                color: rgba(0, 0, 0, 0.85);
+                border: transparent 1px solid;
+            }
+
+                .questionBox .questionContainer .optionContainer .option.is-selected {
+                    border-color: rgba(0, 0, 0, 0.25);
+                    background-color: lightskyblue;
+                }
+
+                .questionBox .questionContainer .optionContainer .option:hover {
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+
+                .questionBox .questionContainer .optionContainer .option:active {
+                    transform: scaleX(0.9);
+                }
+
+        .questionBox .questionContainer .questionFooter {
+            background: rgba(0, 0, 0, 0.025);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            align-self: flex-end;
+        }
+
+            .questionBox .questionContainer .questionFooter .pagination {
+                margin: 15px 25px;
+            }
+
+.questionBox .timer {
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+    height: 45px;
+    padding: 0 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    margin-right:0px;
+    margin-left:auto;
+}
+
+    .questionBox .timer .timer_text {
+        font-weight: 400;
+        user-select: none;
+    }
+
+    .questionBox .timer .timer_sec, .counterIntrebari {
+        font-size: 18px;
+        font-weight: 500;
+        height: 30px;
+        width: 45px;
+        color: #fff;
+        border-radius: 5px;
+        line-height: 30px;
+        text-align: center;
+        background: #343a40;
+        border: 1px solid #343a40;
+        user-select: none;
+    }
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5rem;
+    margin: 0 0.25rem;
+    transition: 0.3s;
+}
+
+    .button:hover {
+        cursor: pointer;
+        background: #eceff1;
+        border-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .button.is-active {
+        background: #2899a7;
+        color: white;
+        border-color: transparent;
+    }
+
+        .button.is-active:hover {
+            background: #0a2ffe;
+        }
+
+@media screen and (min-width: 769px) {
+    .questionBox, .acasaContainer {
+        margin:1% 10%;
+        /*align-items: center;
+        justify-content: center;*/
+    }
+
+        .questionBox .questionContainer {
+            display: flex;
+            flex-direction: column;
+        }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        height: auto !important;
+        border-radius: 6px 6px 0px 0px;
+    }
+}
+/* Teste grila
+-------------------------------------------------- */
+
+
+/* Rapoarte
+-------------------------------------------------- */
+.rapoarteContainer, .intrebariContainer, .noteContainer {
+    margin: 0% 5%;
+    min-height: 30rem;
+    background: #fafafa;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 3%;
+}
+
+.afisareRapoarte {
+    margin-top: 12%;
+}
+
+#inchidereRapoarte {
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
+    background: #ccc;
+}
+
+#chartGeneral, #chartNotaMaxima {
+    max-width:500px;
+    /*max-height:500px;*/
+    display:inline-block !important;
+}
+
+.chartContainer {
+    border: 1px solid #adb5bd;
+    margin:5%;
+    padding:8%;
+}
+/* Rapoarte
+-------------------------------------------------- */
+
+
+/* Administrare intrebari 
+-------------------------------------------------- */
+
+.modal-content {
+    border: 2px solid #343a40 !important;
+}
+
+.modalBlur{
+    -webkit-filter: blur(8px);
+}
+
+/*.intrebariContainer.modalDesaturate > *:not(.modal) {
+    -webkit-filter: saturate(0%);
+}*/
+
+/* Administrare intrebari 
+-------------------------------------------------- */

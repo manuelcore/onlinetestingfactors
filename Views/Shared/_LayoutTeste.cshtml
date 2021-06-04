@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AplicatieWeb.Areas.Identity.Data
+@inject SignInManager<AplicatieUtilizator> signInManager
+@*<!DOCTYPE html>*@
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aplicatie testare</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    @RenderBody()
+
+    <footer class="border-top footer">
+        <div class="container text-center">
+            &copy; 2021 - Aplicatie testare .NET Core - <a asp-area="" asp-controller="Home"></a>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

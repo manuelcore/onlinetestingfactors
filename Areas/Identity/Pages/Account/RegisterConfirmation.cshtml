@@ -1,0 +1,22 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Cerere de inregistrare confirmata";
+}
+
+<h1>@ViewData["Title"]</h1>
+@*@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    Aceasta aplicatie nu are momentan un expeditor de email-uri real inregistrat, accesati <a href="https://aka.ms/aspaccountconf"> aceste documente</a> pentru a vedea cum puteti configura un expeditor de email-uri.
+    In mod normal aceasta este adresa de email <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click aici pentru confirmare cont</a>
+</p>
+    }
+    else
+    {*@
+<p>
+        Va rugam verificati adresa de e-mail pentru link-ul de confirmare a contului.
+</p>
+    @*}
+}*@

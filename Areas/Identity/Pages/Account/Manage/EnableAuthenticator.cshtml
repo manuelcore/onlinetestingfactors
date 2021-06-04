@@ -1,0 +1,53 @@
+﻿@page
+@model EnableAuthenticatorModel
+@{
+    ViewData["Title"] = "Configurare aplicatie de autentificare";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h4>@ViewData["Title"]</h4>
+<div>
+    <p>Pentru a folosi o aplicatie de autentificare va rugam parcurgeti urmatorii pasi:</p>
+    <ol class="list">
+        <li>
+            <p>
+                Descarcati o aplicatie de autentificare cu doi factori cum ar fi Microsoft Authenticator pentru
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> si
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> sau
+                Google Authenticator pentru
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> si
+                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+            </p>
+        </li>
+        <li>
+            <p>Scanati codul QR sau introduceti aceasta cheie <kbd>@Model.SharedKey</kbd> in aplicatia de autentificare. Spatiile si literele mari/mici nu fac diferenta.</p>
+            <div class="alert alert-info">Invatati cum sa <a href="https://go.microsoft.com/fwlink/?Linkid=852423">activati generarea de coduri QR</a>.</div>
+            <div id="qrCode"></div>
+            <div id="qrCodeData" data-url="@Html.Raw(@Model.AuthenticatorUri)"></div>
+        </li>
+        <li>
+            <p>
+                Odata ce ati scanat codul QR sau ati introdus cheia de mai jos, aplicatia de autentificare va va oferi un 
+                cod unic. Introduceti acest cod in campul de confirmare de mai jos.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="send-code" method="post">
+                        <div class="form-group">
+                            <label asp-for="Input.Code" class="control-label">Cod de verificare</label>
+                            <input asp-for="Input.Code" class="form-control" autocomplete="off" />
+                            <span asp-validation-for="Input.Code" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verificare</button>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ol>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

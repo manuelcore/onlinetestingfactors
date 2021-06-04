@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Acasa";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+<script src="~/js/site.js"></script>
+
+<link rel="stylesheet" href="~/css/site.css">
+
+<div ng-app="testeApp" ng-controller="testeController">
+    <section class="acasaContainer">
+        <div></div>
+        <h3 class="text-center m-3 pb-3">{{titlu}}</h3>
+        <ol id="listaTeste" class="gradient-list">
+            <li class="my-3" ng-repeat="item in teste"><a href="Testul{{item.id}}"> {{item.nume}} </a></li>
+        </ol>
+    </section>
+</div>
+
