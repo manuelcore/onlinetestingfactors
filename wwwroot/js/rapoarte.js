@@ -1,4 +1,4 @@
-﻿var appUrl = "https://localhost:44313";
+﻿var appUrl = "https://apptestare.azurewebsites.net/";
 
 var rapoarteApp = angular.module('rapoarteApp', ['ngSanitize']
 ).config(function () {

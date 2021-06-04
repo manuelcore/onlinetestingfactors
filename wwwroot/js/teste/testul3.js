@@ -1,6 +1,6 @@
 ﻿//testul 3 - vue.js cu timer
 
-var appUrl = "https://localhost:44313";
+var appUrl = "https://apptestare.azurewebsites.net/";
 
 window.onload = function () {
     var appT3 = new Vue({

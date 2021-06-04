@@ -1,4 +1,4 @@
-﻿var appUrl = "https://localhost:44313";
+﻿var appUrl = "https://apptestare.azurewebsites.net/";
 
 var testeApp = angular.module('testeApp', []);
     testeApp.controller('testeController', function ($scope, $http) {

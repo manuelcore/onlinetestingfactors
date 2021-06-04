@@ -1,6 +1,6 @@
 ﻿//testul 2 - angular.js
 
-var appUrl = "https://localhost:44313";
+var appUrl = "https://apptestare.azurewebsites.net/";
 
 var appT2 = angular.module('ngAppTestul2', ['ngSanitize']
 ).config(function () {

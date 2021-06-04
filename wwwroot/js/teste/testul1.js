@@ -1,6 +1,6 @@
 ﻿//testul 1 - vue.js
 
-var appUrl = "https://localhost:44313";
+var appUrl = "https://apptestare.azurewebsites.net/";
 
 window.onload = function () {
 

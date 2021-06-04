@@ -1,6 +1,6 @@
 ﻿//testul 4 - angular.js cu timer
 
-var appUrl = "https://localhost:44313";
+var appUrl = "https://apptestare.azurewebsites.net/";
 
 var appT4 = angular.module('ngAppTestul4', ['ngSanitize']
 ).config(function () {
